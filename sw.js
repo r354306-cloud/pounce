@@ -1,5 +1,5 @@
 /* Pounce service worker: offline shell + lock screen nags. */
-const VERSION = 'pounce-v1';
+const VERSION = 'pounce-v2';
 const SHELL = ['./', 'index.html', 'styles.css', 'app.js', 'config.js', 'manifest.webmanifest', 'finds.json',
   'icon-180.png', 'icon-192.png', 'besley-latin-wght-normal.woff2', 'besley-latin-wght-italic.woff2'];
 
@@ -17,7 +17,8 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
-  e.respondWith(fetch(req).then(res => {
+  // 'no-cache' makes the browser check with the server every time, so a new version shows up at once.
+  e.respondWith(fetch(req.url, { cache: 'no-cache' }).then(res => {
     if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
     return res;
   }).catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('index.html'))));
