@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pounce</title>
+<meta name="description" content="Your goals as a to-do list, with a pet who will not let it go.">
+<meta name="theme-color" content="#1C2A78">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pounce">
+<meta property="og:title" content="Pounce">
+<meta property="og:description" content="Your goals as a to-do list, with a pet who will not let it go.">
+<meta property="og:image" content="https://r354306-cloud.github.io/pounce/preview.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="preload" href="besley-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app" class="app">
+  <header id="bind" class="bind"></header>
+  <main id="view" class="view" tabindex="-1"></main>
+  <nav id="tabs" class="tabs" aria-label="Sections"></nav>
+</div>
+<div id="banners" class="banners" aria-live="polite"></div>
+<div id="sheets"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript>Pounce needs JavaScript turned on.</noscript>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
